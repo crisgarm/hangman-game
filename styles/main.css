@@ -14,7 +14,7 @@ body {
   overflow: hidden;
 }
 
-h1 {
+.header-title {
   margin: 20px 0 0;
 }
 
