@@ -47,6 +47,18 @@ function displayWord() {
     )
     //To complete this, we need to turn it back into a string
     .join("")}`;
+  showPopup();
+}
+
+function showPopup() {
+  //Remove the new line character after each letter
+  const innerWord = wordEl.innerText.replace(/\n/g, "");
+  console.log(innerWord);
+  //If you win, show the popup
+  if (innerWord === selectedWord) {
+    finalMessage.innerText = "Congratulations! You won! 😄";
+    popup.style.display = "flex";
+  }
 }
 
 displayWord();
