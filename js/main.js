@@ -29,5 +29,24 @@ const words = [
 
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 console.log(selectedWord);
-const correctLetters = [];
+const correctLetters = ["a", "p", "r", "i", "o"];
 const wrongLetters = [];
+
+//Show hidden word
+function displayWord() {
+  //Take the selected word, turn it into an array in order to map throught it and return either a letter or a blank just an empty string
+  wordEl.innerHTML = `${selectedWord
+    //Turn a string into an array
+    .split("")
+    //Through the array and for each letter we're gonna a return a span element with a class define earlier, and we check if the current letter we're looping throught is included in correctLetters' array and then show the letter
+    .map(
+      (letter) =>
+        `<span class="letter">${
+          correctLetters.includes(letter) ? letter : ""
+        }</span>`
+    )
+    //To complete this, we need to turn it back into a string
+    .join("")}`;
+}
+
+displayWord();
