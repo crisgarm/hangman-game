@@ -4,8 +4,8 @@ const wordEl = document.querySelector(".js-word");
 const wrongLettersEl = document.querySelector(".js-wrong-letters");
 const playAgainBtn = document.querySelector(".js-play-button");
 const popup = document.querySelector(".js-popup-container");
-const notification = document.querySelector("js-notification-container");
-const finalMessage = document.querySelector("js-final-message");
+const notification = document.querySelector(".js-notification-container");
+const finalMessage = document.querySelector(".js-final-message");
 const figureParts = document.querySelectorAll(".figure-part");
 
 const words = [
@@ -29,7 +29,7 @@ const words = [
 
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 console.log(selectedWord);
-const correctLetters = ["a", "p", "r", "i", "o"];
+const correctLetters = [];
 const wrongLetters = [];
 
 //Show hidden word
@@ -60,5 +60,45 @@ function showPopup() {
     popup.style.display = "flex";
   }
 }
+
+//Update the wrong letters
+function updateWrongLettersEl() {
+  console.log("Update wrong");
+}
+
+// //Show notification
+function showNotification() {
+  notification.classList.add("show");
+
+  setTimeout(() => {
+    notification.classList.remove("show");
+  }, 2000);
+}
+
+//Keydown letter press
+function keydownPress(ev) {
+  if (ev.keyCode >= 65 && ev.keyCode <= 90) {
+    const letterPressed = ev.key;
+
+    if (selectedWord.includes(letterPressed)) {
+      if (!correctLetters.includes(letterPressed)) {
+        correctLetters.push(letterPressed);
+        displayWord();
+      } else {
+        showNotification();
+      }
+    } else {
+      if (!wrongLetters.includes(letterPressed)) {
+        wrongLetters.push(letterPressed);
+
+        updateWrongLettersEl();
+      } else {
+        showNotification();
+      }
+    }
+  }
+}
+
+window.addEventListener("keydown", keydownPress);
 
 displayWord();
