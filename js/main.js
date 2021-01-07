@@ -136,6 +136,7 @@ function resetGame() {
   popup.style.display = "none";
 }
 
+//EVENTS
 playAgainBtn.addEventListener("click", resetGame);
 window.addEventListener("keydown", keydownPress);
 
