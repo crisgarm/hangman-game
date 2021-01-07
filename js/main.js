@@ -6,6 +6,7 @@ const playAgainBtn = document.querySelector(".js-play-button");
 const popup = document.querySelector(".js-popup-container");
 const notification = document.querySelector(".js-notification-container");
 const finalMessage = document.querySelector(".js-final-message");
+const finalMessageWord = document.querySelector(".js-final-message-word");
 const figureParts = document.querySelectorAll(".figure-part");
 
 const words = [
@@ -78,6 +79,7 @@ function updateWrongLettersEl() {
   //Check if lost
   if (wrongLetters.length === figureParts.length) {
     finalMessage.innerText = "Unfortunately you lost. ☹️";
+    finalMessageWord.innerText = `The correct word was: ${selectedWord}`;
     popup.style.display = "flex";
   }
 }
