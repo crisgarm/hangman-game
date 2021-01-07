@@ -53,7 +53,6 @@ function displayWord() {
 function showPopup() {
   //Remove the new line character after each letter
   const innerWord = wordEl.innerText.replace(/\n/g, "");
-  console.log(innerWord);
   //If you win, show the popup
   if (innerWord === selectedWord) {
     finalMessage.innerText = "Congratulations! You won! 😄";
@@ -63,10 +62,29 @@ function showPopup() {
 
 //Update the wrong letters
 function updateWrongLettersEl() {
-  console.log("Update wrong");
+  //Display wrong letters
+  wrongLettersEl.innerHTML = `
+  ${wrongLetters.length > 0 ? "<p>Wrong letters</p>" : ""}
+  ${wrongLetters.map((letter) => `<span>${letter}</span>`)}`;
+  //Display parts
+  figureParts.forEach((part, index) => {
+    const errors = wrongLetters.length;
+
+    if (index < errors) {
+      part.style.display = "block";
+    } else {
+      part.style.display = "none";
+    }
+  });
+
+  //Check if lost
+  if (wrongLetters.length === figureParts.length) {
+    finalMessage.innerText = "Unfortunately you lost. ☹️";
+    popup.style.display = "flex";
+  }
 }
 
-// //Show notification
+//Show notification
 function showNotification() {
   notification.classList.add("show");
 
@@ -99,6 +117,26 @@ function keydownPress(ev) {
   }
 }
 
+//Reset game and play again
+function resetGame() {
+  //Empty arrays
+  correctLetters.splice(0);
+  wrongLetters.splice(0);
+
+  //Get a random word
+  selectedWord = words[Math.floor(Math.random() * words.length)];
+
+  //Start the game
+  displayWord();
+
+  //Clean up the wrong letters and hide the figure
+  updateWrongLettersEl();
+
+  //Hide popup
+  popup.style.display = "none";
+}
+
+playAgainBtn.addEventListener("click", resetGame);
 window.addEventListener("keydown", keydownPress);
 
 displayWord();
