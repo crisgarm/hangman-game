@@ -21,10 +21,8 @@ const words = [
   "favicon",
   "react",
   "angular",
-  "responsive design",
   "accessibility",
   "asynchronous",
-  "arrow function",
 ];
 
 let selectedWord = words[Math.floor(Math.random() * words.length)];
@@ -96,7 +94,7 @@ function showNotification() {
 //Keydown letter press
 function keydownPress(ev) {
   if (ev.keyCode >= 65 && ev.keyCode <= 90) {
-    const letterPressed = ev.key;
+    const letterPressed = ev.key.toLowerCase();
 
     if (selectedWord.includes(letterPressed)) {
       if (!correctLetters.includes(letterPressed)) {
