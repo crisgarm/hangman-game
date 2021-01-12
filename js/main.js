@@ -35,16 +35,13 @@ const wrongLetters = [];
 function displayWord() {
   //Take the selected word, turn it into an array in order to map throught it and return either a letter or a blank just an empty string
   wordEl.innerHTML = `${selectedWord
-    //Turn a string into an array
     .split("")
-    //Through the array and for each letter we're gonna a return a span element with a class define earlier, and we check if the current letter we're looping throught is included in correctLetters' array and then show the letter
     .map(
       (letter) =>
         `<span class="letter">${
           correctLetters.includes(letter) ? letter : ""
         }</span>`
     )
-    //To complete this, we need to turn it back into a string
     .join("")}`;
   showPopup();
 }
@@ -61,11 +58,11 @@ function showPopup() {
 
 //Update the wrong letters
 function updateWrongLettersEl() {
-  //Display wrong letters
+  //Render wrong letters
   wrongLettersEl.innerHTML = `
   ${wrongLetters.length > 0 ? "<p>Wrong letters</p>" : ""}
   ${wrongLetters.map((letter) => `<span>${letter}</span>`)}`;
-  //Display parts
+  //Render parts
   figureParts.forEach((part, index) => {
     const errors = wrongLetters.length;
 
@@ -76,7 +73,7 @@ function updateWrongLettersEl() {
     }
   });
 
-  //Check if lost
+  //Check if you lost
   if (wrongLetters.length === figureParts.length) {
     finalMessage.innerText = "Unfortunately you lost. ☹️";
     finalMessageWord.innerText = `The correct word was: ${selectedWord}`;

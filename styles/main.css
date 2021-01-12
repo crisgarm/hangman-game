@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #34495e;
+  background-color: #0c7954;
   color: #fff;
   height: 80vh;
   display: flex;
@@ -63,7 +63,7 @@ body {
 }
 
 .letter {
-  border-bottom: 3px solid #2980b9;
+  border-bottom: 3px solid #3de0aa;
   display: inline-flex;
   font-size: 30px;
   justify-content: center;
@@ -85,7 +85,7 @@ body {
 }
 
 .popup {
-  background-color: #2980b9;
+  background-color: #30a17c;
   border-radius: 5px;
   box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -95,7 +95,7 @@ body {
 .popup button {
   cursor: pointer;
   background-color: #fff;
-  color: #2980b9;
+  color: #30a17c;
   border: 0;
   margin-top: 20px;
   padding: 12px 20px;
