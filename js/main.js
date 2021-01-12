@@ -52,6 +52,7 @@ function showPopup() {
   //If you win, show the popup
   if (innerWord === selectedWord) {
     finalMessage.innerText = "Congratulations! You won! 😄";
+    finalMessageWord.innerText = "";
     popup.style.display = "flex";
   }
 }
