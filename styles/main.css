@@ -131,3 +131,9 @@ body {
 .notification-container.show {
   transform: translateY(-50px);
 }
+
+#dummy {
+  position: absolute;
+  left: -200px;
+  top: 0px;
+}
