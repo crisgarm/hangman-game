@@ -7,7 +7,6 @@
 body {
   background-color: #0c7954;
   color: #fff;
-  height: 100vh;
   width: 100%;
   overflow: hidden;
 }
@@ -70,10 +69,10 @@ body {
 .letter {
   border-bottom: 3px solid #3de0aa;
   display: inline-flex;
-  font-size: 30px;
+  font-size: 24px;
   justify-content: center;
   margin: 0 3px;
-  height: 50px;
+  height: 30px;
   width: 20px;
 }
 
@@ -144,7 +143,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  margin: 20px 10px 0 10px;
 }
 
 .keyboard__letter {
