@@ -8,7 +8,6 @@ body {
   background-color: #0c7954;
   color: #fff;
   width: 100%;
-  overflow: hidden;
 }
 
 .header {
@@ -74,6 +73,13 @@ body {
   margin: 0 3px;
   height: 30px;
   width: 20px;
+}
+
+@media all and (min-width: 1200px) {
+  .letter {
+    font-size: 30px;
+    height: 50px;
+  }
 }
 
 .popup-container {
