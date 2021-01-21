@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="./styles/main.css" />
   </head>
   <body>
-    <header>
-      <h1 class="header-title">Hangman</h1>
+    <header class="header">
+      <h1>Hangman</h1>
       <p>Find the hidden word - Enter a letter</p>
     </header>
-    <main>
+    <main class="main">
       <div class="game-container">
         <svg height="250" width="200" class="figure-container">
           <!-- Rod -->
@@ -40,6 +40,7 @@
 
         <div class="word js-word"></div>
       </div>
+      <div class="keyboard"></div>
 
       <!-- Container for final message -->
       <div class="popup-container js-popup-container">
@@ -55,7 +56,6 @@
         <p>You have already entered this letter</p>
       </div>
     </main>
-    <input type="text" id="input" />
     <script type="text/javascript" src="./js/main.js"></script>
   </body>
 </html>

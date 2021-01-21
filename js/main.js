@@ -8,7 +8,7 @@ const notification = document.querySelector(".js-notification-container");
 const finalMessage = document.querySelector(".js-final-message");
 const finalMessageWord = document.querySelector(".js-final-message-word");
 const figureParts = document.querySelectorAll(".figure-part");
-const input = document.getElementById("input");
+const keyboard = document.querySelector(".keyboard");
 
 const words = [
   "developer",
@@ -27,6 +27,36 @@ const words = [
   "asynchronous",
 ];
 
+const alphabet = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
+
+//Random word
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 console.log(selectedWord);
 const correctLetters = [];
@@ -95,7 +125,7 @@ function showNotification() {
 //Keydown letter press
 function keydownPress(ev) {
   if (ev.keyCode >= 65 && ev.keyCode <= 90) {
-    const letterPressed = ev.key.toLowerCase();
+    const letterPressed = ev.key;
 
     if (selectedWord.includes(letterPressed)) {
       if (!correctLetters.includes(letterPressed)) {
@@ -135,13 +165,48 @@ function resetGame() {
   popup.style.display = "none";
 }
 
-function handleClick() {
-  input.focus();
+//<-----TO PLAY ON TABLET OR MOBILE DEVICE----->
+
+//Keyboard
+const writeKeyboard = () => {
+  alphabet.map((letterKeyboard) => {
+    const span = document.createElement("span");
+    span.classList.add("keyboard__letter");
+    span.textContent = letterKeyboard;
+    keyboard.appendChild(span);
+  });
+};
+
+//Check the letter pressed
+const checkLetter = (letterPressed) => {
+  if (selectedWord.includes(letterPressed)) {
+    if (!correctLetters.includes(letterPressed)) {
+      correctLetters.push(letterPressed);
+      displayWord();
+    } else {
+      showNotification();
+    }
+  } else {
+    if (!wrongLetters.includes(letterPressed)) {
+      wrongLetters.push(letterPressed);
+
+      updateWrongLettersEl();
+    } else {
+      showNotification();
+    }
+  }
+};
+
+function handleKeyboard(ev) {
+  if (ev.target.classList.contains("keyboard__letter")) {
+    checkLetter(ev.target.innerHTML);
+  }
 }
 
 //EVENTS
 playAgainBtn.addEventListener("click", resetGame);
 window.addEventListener("keydown", keydownPress);
-window.addEventListener("click", handleClick);
+keyboard.addEventListener("click", handleKeyboard);
 
 displayWord();
+writeKeyboard();

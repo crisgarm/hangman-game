@@ -7,15 +7,23 @@
 body {
   background-color: #0c7954;
   color: #fff;
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 100vh;
   overflow: hidden;
 }
 
-.header-title {
-  margin: 20px 0 0;
+.header {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+@media all and (min-width: 1200px) {
+  .header {
+    padding: 20px 0 0 0;
+  }
+}
+
+.main {
+  width: 100%;
 }
 
 .game-container {
@@ -40,7 +48,7 @@ body {
 .wrong-letters-container {
   position: absolute;
   top: 20px;
-  right: 20px;
+  right: 0;
   display: flex;
   flex-direction: column;
   text-align: right;
@@ -132,8 +140,28 @@ body {
   transform: translateY(-50px);
 }
 
-#input {
-  position: absolute;
-  left: -200px;
-  top: 0px;
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.keyboard__letter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  background-color: rgb(21, 83, 78);
+  margin: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+@media all and (min-width: 1200px) {
+  .keyboard {
+    display: none;
+  }
 }
