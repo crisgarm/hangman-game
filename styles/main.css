@@ -132,7 +132,7 @@ body {
   transform: translateY(-50px);
 }
 
-#dummy {
+#input {
   position: absolute;
   left: -200px;
   top: 0px;

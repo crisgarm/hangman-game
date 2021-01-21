@@ -8,7 +8,7 @@ const notification = document.querySelector(".js-notification-container");
 const finalMessage = document.querySelector(".js-final-message");
 const finalMessageWord = document.querySelector(".js-final-message-word");
 const figureParts = document.querySelectorAll(".figure-part");
-const input = document.getElementById("dummy");
+const input = document.getElementById("input");
 
 const words = [
   "developer",
@@ -34,7 +34,6 @@ const wrongLetters = [];
 
 //Show hidden word
 function displayWord() {
-  input.focus();
   //Take the selected word, turn it into an array in order to map throught it and return either a letter or a blank just an empty string
   wordEl.innerHTML = `${selectedWord
     .split("")
@@ -136,8 +135,13 @@ function resetGame() {
   popup.style.display = "none";
 }
 
+function handleClick() {
+  input.focus();
+}
+
 //EVENTS
 playAgainBtn.addEventListener("click", resetGame);
 window.addEventListener("keydown", keydownPress);
+window.addEventListener("click", handleClick);
 
 displayWord();
